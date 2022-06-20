@@ -4,6 +4,7 @@ import random
 
 from snake import DOWN, GRID_HEIGHT, GRID_WIDTH, GRIDSIZE, LEFT, RIGHT, SCREEN_HEIGHT, SCREEN_WIDTH, UP
 
+#this function handles everything to do with the snake
 class snake(object):
     def __init__(self):
         self.length = 1
@@ -42,6 +43,7 @@ class snake(object):
             pygame.draw.rect(surface, self.color, r)
             pygame.draw.rect(surface, (93, 216, 228),r,1)
 
+    #this makes key inputs work
     def handle_keys(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -58,7 +60,7 @@ class snake(object):
                     self.turn(RIGHT)
 
 
-
+#this class handles everything about the food
 class food (object):
     def __init__(self):
         self.position = [0, 0]
@@ -71,6 +73,7 @@ class food (object):
     def draw (self, surface):
         pass
 
+#this function handles drawing the gridlike surface
 def drawGrid(surface):
     for y in range(0, int(GRID_HEIGHT)):
         for x in range(0, int(GRID_WIDTH)):
@@ -94,6 +97,7 @@ DOWN = (0, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
 
+#this function handles the main things of the game itself
 def main():
     pygame.init()
 
@@ -110,7 +114,6 @@ def main():
     score = 0
     while (True):
         clock.tick(10)
-        #handle events
         screen.blit(surface, (0, 0))
         pygame.display.update()
 
